@@ -1,0 +1,54 @@
+<div class="container">
+    <h1>Balance de Operaciones</h1>
+    
+    <div>
+        <table class="table">
+            <div class="table-responsive-sm">
+                <thead class="table-dark">
+                <tr>
+                    <th scope="col">Ingreso</th>
+                    <th scope="col">Egreso</th>
+                    <th scope="col">Total</th>                                   
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td class="table-success" >{{ingreso}}</td>
+                    <td class="table-danger">{{egreso}}</td>
+                    <td class="table-info">{{ingreso - egreso}}</td>
+                                   
+                </tr>   
+                </tbody>
+            </div>
+        </table>
+    </div>
+
+    <h1>Ultimas 10 Operaciones</h1>
+        <table class="table table-sm">
+            <div class="table-responsive-sm">
+                <thead class="table-dark">
+                <tr>
+                    <th scope="col">id</th>
+                    <th scope="col">Concepto</th>
+                    <th scope="col">Precio</th>
+                    <th scope="col">Fecha</th>
+                    <th scope="col">Tipo</th>
+                    <th scope="col">Categorias</th>
+                    <th scope="col">Creado</th>                  
+                </tr>
+                </thead>
+                <tbody>
+                <tr *ngFor="let operation of listar">
+                    <td>{{operation.id}}</td>
+                    <td>{{operation.concept}}</td>
+                    <td>{{operation.price}}</td>
+                    <td>{{operation.date | date:'dd-MM-yyyy'}}</td>
+                    <td>{{operation.type}}</td>
+                    <td>{{operation.categories}}</td>
+                    <td>{{operation.created_at | date:'dd-MM-yyyy'}}</td>                   
+                </tr>   
+                </tbody>
+            </div>
+        </table>
+</div>
+    

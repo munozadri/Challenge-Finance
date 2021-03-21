@@ -1,0 +1,30 @@
+<div class="content-form" *ngIf="user">  
+    <h2>Crea tu cuenta</h2>
+    <form class="form" #userForm="ngForm" (ngSubmit)="add(userForm)">
+        <div class="form-group">
+            <label class="name"for="first_name">Nombre:</label>
+            <input type="text" class="form-control" id="first_name" name="first_name" #first_name="ngModel" [(ngModel)]="user.first_name" required>
+        </div>
+        <div class="form-group">
+            <label class="name"for="last_name">Apellido:</label>
+            <input type="text" class="form-control" id="last_name" name="last_name" #last_name="ngModel" [(ngModel)]="user.last_name" required>
+        </div>
+        <div class="form-group">
+          <label class="email"for="email">Email:</label>
+          <input type="email" class="form-control" id="email" name="email" #email="ngModel" [(ngModel)]="user.email" required>
+        </div>
+        <div class="form-group">
+          <label class="password" for="password">Contraseña:</label>
+          <input type="password" class="form-control" id="password" name="password" #password="ngModel" [(ngModel)]="user.password" required>
+        </div>
+        
+        <button type="submit">Registrar</button>
+    </form>
+    <div class="alert alert-success" *ngIf="status == 'success'" >
+      Registro completado correctamente, <a [routerLink]="['/login']">identificate aquí</a>
+    </div>
+    
+    <div class="alert-warning" *ngIf="status == 'error'">
+      Registro no se ha completado...intenta de nuevo!!
+    </div>
+</div>

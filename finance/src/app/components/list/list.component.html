@@ -1,0 +1,42 @@
+<div class="container">
+<h1>Listado de Operaciones</h1>
+    <table class="table table-sm">
+        <div class="table-responsive-sm">
+            <thead class="table-dark">
+            <tr class="tablepersonalizada">
+                <th scope="col-sm">id</th>
+                <th scope="col-sm">Concepto</th>
+                <th scope="col-sm">Precio</th>
+                <th scope="col-sm">Fecha</th>
+                <th scope="col-sm">Tipo</th>
+                <th scope="col-sm">Categorias</th>
+                <th scope="col-sm">Creado</th>
+                <th scope="col-sm">Editar</th>
+                <th scope="col-sm">Eliminar</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let operation of listar  | paginate: config">
+                <td>{{operation.id}}</td>
+                <td>{{operation.concept}}</td>
+                <td>{{operation.price}}</td>
+                <td>{{operation.date | date:'dd-MM-yyyy'}}</td>
+                <td>{{operation.type}}</td>
+                <td>{{operation.categories}}</td>
+                <td>{{operation.created_at | date:'dd-MM-yyyy'}}</td>        
+                <td>
+                    <button (click)="edit(operation.id)" type="button" class="btn btn-primary">Editar</button>
+                </td>
+                <td>
+                    <button (click)="delete(operation.id)" type="button" class="btn btn-danger">Eliminar</button>
+                </td>
+            </tr>   
+            </tbody>
+        </div>
+    </table>
+    <div>
+        <pagination-controls (pageChange)="pageChanged($event)" class="my-pagination"></pagination-controls>
+    </div>
+    
+</div>
+

@@ -1,0 +1,35 @@
+<div class="content-form" *ngIf="operation">
+    <h2>Formulario de Operaciones Financieras</h2>
+    <form class="form" #operationForm="ngForm" (ngSubmit)="add(operationForm)" >
+        <div class="form-group">
+            <label class="concept" for="concept">Concepto:</label>
+            <input type="text" class="form-control" placeholder="concepto de la operación" name="concept" #concept="ngModel" [(ngModel)]="operation.concept" required>
+        </div>
+        <div class="form-group">
+            <label class="price"for="price">Monto:</label>
+            <input type="text" class="form-control" id="price" placeholder="en pesos $" name="price" #price="ngModel" [(ngModel)]="operation.price" required>
+        </div>
+        <div class="form-group">
+          <label class="date"for="date">Fecha:</label>
+          <input type="date" class="form-control" id="date" placeholder="YYYY/MM/DD" name="date" #date="ngModel" [(ngModel)]="operation.date" required>
+        </div>
+        <div class="form-group">
+          <label class="type" for="type">Tipo:</label>
+          <select name="type" id="type" form="typeform" name="type" #type="ngModel" [(ngModel)]="operation.type" required>
+            <option value="Ingreso">Ingreso</option>
+            <option value="Egreso">Egreso</option>            
+          </select>
+        </div>
+        <div class="form-group">
+            <label class="categories" for="categories">Categorías:</label>
+            <select name="categories" id="categories" form="categoriesform" name="categories" #categories="ngModel" [(ngModel)]="operation.categories" required>
+              <option value="Gastos Operativos">Gastos Operativos</option>
+              <option value="Inversión">Inversión</option>
+              <option value="Recreacion">Recreacion</option>   
+              <option value="Ahorro">Ahorro</option>               
+            </select>
+          </div>
+        
+        <button type="submit">Aceptar</button>
+      </form>
+</div>
